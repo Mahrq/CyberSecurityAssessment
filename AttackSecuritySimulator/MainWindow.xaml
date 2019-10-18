@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AttackSecuritySimulator"
+        xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
+
+    <Border Padding="5" Background="Black">
+        <ContentControl>
+            
+        </ContentControl>
+    </Border>
 </Window>

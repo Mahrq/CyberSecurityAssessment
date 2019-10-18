@@ -13,18 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/// <summary>
-/// Server IP: http://172.30.91.65
-/// AnzBank: http://172.30.91.65/anz.html
-/// </summary>
 namespace AttackSecuritySimulator
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PlayerStatsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PlayerStatsView : UserControl
     {
-        public MainWindow()
+        public PlayerStatsView()
         {
             InitializeComponent();
         }

@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AttackSecuritySimulator">
+    <!--Lighter Black-->
+    <Color x:Key="BackGround">#202020</Color>
+    <SolidColorBrush x:Key="BackGroundBrush" Color="{StaticResource BackGround}"/>
+
+    <!--Dark Grey-->
+    <Color x:Key="Interactable">#373737</Color>
+    <SolidColorBrush x:Key="InteractableBrush" Color="{StaticResource Interactable}"/>
+    
+    <!--Darker White-->
+    <Color x:Key="TextColour">#e6e6e6</Color>
+    <SolidColorBrush x:Key="TextColourBrush" Color="{StaticResource TextColour}"/>
+</ResourceDictionary>
