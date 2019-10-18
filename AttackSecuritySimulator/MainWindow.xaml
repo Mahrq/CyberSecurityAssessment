@@ -9,9 +9,19 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
 
-    <Border Padding="5" Background="Black">
+    <Window.Resources>
+        <!--<vm:MainWindowViewModel x:Key="MainWindowViewModel"/>-->
+        <vm:PlayerStatsViewModel x:Key="PlayerStatsViewModel"/>
+    </Window.Resources>
+    
+    <Border Padding="5" Background="{StaticResource BackGroundBrush}" DataContext="{StaticResource PlayerStatsViewModel}">
         <ContentControl>
-            
+            <StackPanel>
+                <TextBlock Text="Hello World" 
+                           FontSize="50"
+                           Foreground="{StaticResource TextColourBrush}"/>
+                
+            </StackPanel>
         </ContentControl>
     </Border>
 </Window>

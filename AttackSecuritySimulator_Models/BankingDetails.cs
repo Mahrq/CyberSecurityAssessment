@@ -15,11 +15,11 @@ namespace AttackSecuritySimulator_Models
         private double balance = 0;
         public double Balance { get { return balance; } }
 
-        public BankingDetails(string name, string password, double amount)
+        public BankingDetails(string setName, string setPassword, double setAmount)
         {
-            login = name;
-            login = password;
-            balance = amount;
+            login = setName;
+            password = setPassword;
+            balance = setAmount;
         }
 
     }

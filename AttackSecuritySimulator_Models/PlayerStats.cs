@@ -13,9 +13,9 @@ namespace AttackSecuritySimulator_Models
         public BankingDetails AnzBankDetails { get; set; }
         public BankingDetails PayPalDetails { get; set; }
 
-        public PlayerStats(string email, string emailPassword, BankingDetails[] bankingDetails)
+        public PlayerStats(string name, string emailPassword, BankingDetails[] bankingDetails)
         {
-            Email = email;
+            Email = name;
             EmailPassword = emailPassword;
             AnzBankDetails = bankingDetails[0];
             PayPalDetails = bankingDetails[1];

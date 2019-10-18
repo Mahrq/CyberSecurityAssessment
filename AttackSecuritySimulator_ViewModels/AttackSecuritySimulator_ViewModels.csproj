@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\BankType.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="PlayerStatsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

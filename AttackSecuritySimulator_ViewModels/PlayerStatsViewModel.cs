@@ -28,7 +28,8 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
-        private PlayerStats playerStats;
+        private PlayerStats currentPlayer;
+        public PlayerStats CurrentPlayer { get { return currentPlayer; } }
 
         public PlayerStatsViewModel()
         {
@@ -41,25 +42,82 @@ namespace AttackSecuritySimulator_ViewModels
             BankingDetails[] bankingDetails = {new BankingDetails("379600354", "ilikecats", 1000),
                                                 new BankingDetails(finishedEmail, "H^4%!zV4ds", 300) };
 
-            playerStats = new PlayerStats(finishedEmail, "dragonslayer69", bankingDetails);
+            currentPlayer = new PlayerStats(finishedEmail, "dragonslayer69", bankingDetails);
         }
-
-
 
         #region UI Binding 
 
-        public string EmailLogIn { get; set; }
-        public string EmailPassword { get; set; }
-
-        public string AnzLogIn { get; set; }
-        public string AnzPassword { get; set; }
-
-        public string PayPalLogIn { get; set; }
-        public string PayPalPassword { get; set; }
+        //Email details
+        public string TxtEmailLogIn
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "default@gmail.com";
+                }
+                return currentPlayer.Email;
+            }
+        }
+        public string TxtEmailPassword
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "defpassemail";
+                }
+                return currentPlayer.EmailPassword;
+            }
+        }
+        //Anz details
+        public string TxtAnzLogIn
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "123456789";
+                }
+                return currentPlayer.AnzBankDetails.Login;
+            }
+        }
+        public string TxtAnzPassword
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "password1234bank";
+                }
+                return currentPlayer.AnzBankDetails.Password;
+            }
+        }
+        //PayPal details
+        public string TxtPayPalLogIn
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "payforpals@gmail.com";
+                }
+                return currentPlayer.PayPalDetails.Login;
+            }
+        }
+        public string TxtPayPalPassword
+        {
+            get
+            {
+                if (currentPlayer == null)
+                {
+                    return "1234abcd";
+                }
+                return currentPlayer.PayPalDetails.Password;
+            }
+        }
 
         #endregion
-
-
 
     }
 }
