@@ -23,8 +23,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Border x:Name="border" 
-                            BorderBrush="{StaticResource TextColourBrush}" 
-                            BorderThickness="1"
+                            BorderBrush="#131313" 
+                            BorderThickness="3"
                             CornerRadius="50"
                             Background="{TemplateBinding Background}" 
                             SnapsToDevicePixels="True">
@@ -44,16 +44,16 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#3bc420"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                            <Setter Property="Background" TargetName="border" Value="#4f4f4f"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#131313"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            <Setter Property="Background" TargetName="border" Value="#0c0b0b"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#131313"/>
                         </Trigger>
                         <Trigger Property="ToggleButton.IsChecked" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            <Setter Property="Background" TargetName="border" Value="#0c0b0b"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#131313"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
@@ -65,9 +65,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
-    
+
 
     <!--Assign default style to all buttons-->
     <!--<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MenuButtons}"/>-->

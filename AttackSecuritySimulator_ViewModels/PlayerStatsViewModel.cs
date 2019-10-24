@@ -12,7 +12,7 @@ namespace AttackSecuritySimulator_ViewModels
     ///                 When the user needs to log into the websites, they will be prompt to
     ///                 enter creditials
     /// </summary>
-    public class PlayerStatsViewModel : ViewModelPropertyChanged
+    public class PlayerStatsViewModel : BaseViewModelPropertyChanged
     {
         //This name will be retrieved from another ViewModel where the player has input their name.
         private string inputName;
@@ -38,7 +38,7 @@ namespace AttackSecuritySimulator_ViewModels
 
         private void FinishPlayerCreation(string name)
         {
-            string finishedEmail = string.Format($"{name}@gmail.com");
+            string finishedEmail = string.Format($"{name}@gmail.com");        
             BankingDetails[] bankingDetails = {new BankingDetails("379600354", "ilikecats", 1000),
                                                 new BankingDetails(finishedEmail, "H^4%!zV4ds", 300) };
 
@@ -102,7 +102,7 @@ namespace AttackSecuritySimulator_ViewModels
                 {
                     return "payforpals@gmail.com";
                 }
-                return currentPlayer.PayPalDetails.Login;
+                return "use email";
             }
         }
         public string TxtPayPalPassword

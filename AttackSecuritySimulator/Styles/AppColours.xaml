@@ -9,7 +9,14 @@
     <Color x:Key="Interactable">#373737</Color>
     <SolidColorBrush x:Key="InteractableBrush" Color="{StaticResource Interactable}"/>
     
-    <!--Darker White-->
+    <!--Dark White-->
     <Color x:Key="TextColour">#e6e6e6</Color>
     <SolidColorBrush x:Key="TextColourBrush" Color="{StaticResource TextColour}"/>
+
+    <!--Grey to black gradient-->
+    <LinearGradientBrush x:Key="BlackGrey" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource Interactable}" Offset="0.1"/>
+        <GradientStop Color="{StaticResource BackGround}" Offset="0.9"/>
+        <GradientStop Color="{StaticResource Interactable}" Offset="1"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

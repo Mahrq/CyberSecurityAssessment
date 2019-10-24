@@ -8,15 +8,21 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
-
+    <!--Resources for MainWindow will be the main screens: MainMenu, About, Credits, and In-game-->
     <Window.Resources>
-        <!--<vm:MainWindowViewModel x:Key="MainWindowViewModel"/>-->
+        <DataTemplate DataType="{x:Type vm:MainWindowViewModel}">
+            <local:MainMenuView/>
+        </DataTemplate>
         <vm:PlayerStatsViewModel x:Key="PlayerStatsViewModel"/>
     </Window.Resources>
-    
+    <!--ViewModel for MainWindow-->
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <!--MainWindow Contents-->
     <Border Padding="5" Background="{StaticResource BackGroundBrush}" DataContext="{StaticResource PlayerStatsViewModel}">
-        <ContentControl>
-            
+        <ContentControl Name="DisplayUserControl">
+            <local:MainMenuView/>
         </ContentControl>
     </Border>
 </Window>
