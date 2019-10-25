@@ -8,21 +8,33 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
-    <!--Resources for MainWindow will be the main screens: MainMenu, About, Credits, and In-game-->
+    
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:MainWindowViewModel}">
-            <local:MainMenuView/>
-        </DataTemplate>
-        <vm:PlayerStatsViewModel x:Key="PlayerStatsViewModel"/>
+        <vm:MainWindowViewModel x:Key="MainWindowPageViewer"/>
     </Window.Resources>
-    <!--ViewModel for MainWindow-->
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
     <!--MainWindow Contents-->
-    <Border Padding="5" Background="{StaticResource BackGroundBrush}" DataContext="{StaticResource PlayerStatsViewModel}">
-        <ContentControl Name="DisplayUserControl">
-            <local:MainMenuView/>
-        </ContentControl>
+    <Border Padding="5" Background="{StaticResource BackGroundBrush}">
+        <!--ViewModel for MainWindow-->
+        <Border.DataContext>
+            <vm:MainWindowViewModel/>
+        </Border.DataContext>
+        <!--Resources for MainWindow will be the main screens: MainMenu, About, Credits, and In-game-->
+        <Border.Resources>
+            <!--Main Menu Page-->
+            <DataTemplate DataType="{x:Type vm:MainMenuViewModel}">
+                <local:MainMenuView/>
+            </DataTemplate>
+            <!--About Page-->
+            <DataTemplate DataType="{x:Type vm:AboutPageViewModel}">
+                <local:AboutPageView/>
+            </DataTemplate>
+            <!--Credits Page-->
+            <DataTemplate DataType="{x:Type vm:CreditPageViewModel}">
+                <local:CreditsPageView/>
+            </DataTemplate>
+        </Border.Resources>
+
+        <!--Current Page Shown-->
+        <ContentControl Content="{Binding CurrentPageDisplayed}"/>
     </Border>
 </Window>

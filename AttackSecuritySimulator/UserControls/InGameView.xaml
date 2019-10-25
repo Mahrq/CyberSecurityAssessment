@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="AttackSecuritySimulator.InGameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AttackSecuritySimulator"
+             xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="1280">
+    <Grid>
+        <!--ViewModel-->
+        <Grid.DataContext>
+            <vm:InGameViewModel/>
+        </Grid.DataContext>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Web Browser-->
+        <ContentControl Grid.Column="0"/>
+
+
+        <!--Side Menu Definition-->
+        <Grid Grid.Column="1" Background="{StaticResource BlackGrey}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <!--Sticky Notes png-->
+            <ContentControl Grid.Row="0"/>
+            <!--Side Buttons-->
+            <StackPanel Grid.Row="1">
+                <Button Content="HomePage"
+                        Background="{StaticResource BlackGrey}"
+                        Foreground="{StaticResource TextColourBrush}"
+                        />
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

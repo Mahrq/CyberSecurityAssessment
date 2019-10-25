@@ -19,5 +19,7 @@ namespace AttackSecuritySimulator_ViewModels
         {
             Value = value;
         }
+
+
     }
 }

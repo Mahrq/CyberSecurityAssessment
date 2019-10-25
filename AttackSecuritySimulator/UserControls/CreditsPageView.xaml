@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="AttackSecuritySimulator.CreditsPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AttackSecuritySimulator"
+             xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="1280">
+    <StackPanel>
+        <!--View Model-->
+        <StackPanel.DataContext>
+            <vm:CreditPageViewModel/>
+        </StackPanel.DataContext>
+        
+        <!--Contents-->
+        <Label Content="Credits"
+               FontSize="80"
+               Foreground="{StaticResource TextColourBrush}"
+               HorizontalAlignment="Center"/>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Role Name-->
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Project Director:"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="300,40,0,0"
+                           FontSize="30"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Style="{StaticResource MenuButtons}"
+                Content="Back"
+                Command="{Binding DisplayMainMenu}"
+                Margin="0,40,0,0"
+                HorizontalAlignment="Center"/>
+    </StackPanel>
+</UserControl>

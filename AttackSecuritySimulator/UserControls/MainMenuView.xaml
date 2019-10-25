@@ -10,6 +10,10 @@
 
     <Border Background="{StaticResource BackGroundBrush}">
         <StackPanel HorizontalAlignment="Center">
+            <StackPanel.DataContext>
+                <vm:MainMenuViewModel/>
+            </StackPanel.DataContext>
+            
             <Label Content="ASS : AttackSecuritySimulator" 
                    FontSize="60"
                    Foreground="{StaticResource TextColourBrush}"
@@ -18,12 +22,15 @@
                     Style="{StaticResource MenuButtons}"
                     Margin="0,0,0,20"/>
             <Button Content="About"
+                    Command="{Binding DisplayAboutPage}"
                     Style="{StaticResource MenuButtons}"
                     Margin="0,0,0,20"/>
             <Button Content="Credits"
+                    Command="{Binding  DisplayCreditPage}"
                     Style="{StaticResource MenuButtons}"
                     Margin="0,0,0,20"/>
             <Button Content="Quit"
+                    Command="{Binding QuitGame}"
                     Style="{StaticResource MenuButtons}"
                     Margin="0,0,0,20"/>
 

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AttackSecuritySimulator_Models
 {
-    public class PlayerStats
+    public class PlayerStatsModel
     {
         public string Email { get; set; }
         public string EmailPassword { get; set; }
-        public BankingDetails AnzBankDetails { get; set; }
-        public BankingDetails PayPalDetails { get; set; }
+        public BankingDetailsModel AnzBankDetails { get; set; }
+        public BankingDetailsModel PayPalDetails { get; set; }
 
-        public PlayerStats(string name, string emailPassword, BankingDetails[] bankingDetails)
+        public PlayerStatsModel(string name, string emailPassword, BankingDetailsModel[] bankingDetails)
         {
             Email = name;
             EmailPassword = emailPassword;

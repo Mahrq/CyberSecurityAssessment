@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using AttackSecuritySimulator_ViewModels;
 namespace AttackSecuritySimulator
 {
     /// <summary>
@@ -13,5 +13,14 @@ namespace AttackSecuritySimulator
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            MainWindow mainWindow = new MainWindow();
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindow.DataContext = mainWindowViewModel;
+            mainWindow.Show();
+        }
     }
 }

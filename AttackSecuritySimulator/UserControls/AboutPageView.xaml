@@ -16,6 +16,10 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1">
+                <StackPanel.DataContext>
+                    <vm:AboutPageViewModel/>
+                </StackPanel.DataContext>
+                
                 <Label Content="About"
                        FontSize="80"
                        Foreground="{StaticResource TextColourBrush}"
@@ -31,6 +35,11 @@
                         the web.
                     
                 </TextBlock>
+
+                <Button Style="{StaticResource MenuButtons}"
+                        Content="Back"
+                        Margin="0,70,0,0"
+                        Command="{Binding  DisplayMainMenu}"/>
             </StackPanel>
 
         </Grid>

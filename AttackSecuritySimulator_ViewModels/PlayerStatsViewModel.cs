@@ -28,8 +28,8 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
-        private PlayerStats currentPlayer;
-        public PlayerStats CurrentPlayer { get { return currentPlayer; } }
+        private PlayerStatsModel currentPlayer;
+        public PlayerStatsModel CurrentPlayer { get { return currentPlayer; } }
 
         public PlayerStatsViewModel()
         {
@@ -39,11 +39,13 @@ namespace AttackSecuritySimulator_ViewModels
         private void FinishPlayerCreation(string name)
         {
             string finishedEmail = string.Format($"{name}@gmail.com");        
-            BankingDetails[] bankingDetails = {new BankingDetails("379600354", "ilikecats", 1000),
-                                                new BankingDetails(finishedEmail, "H^4%!zV4ds", 300) };
+            BankingDetailsModel[] bankingDetails = {new BankingDetailsModel("379600354", "ilikecats", 1000),
+                                                new BankingDetailsModel(finishedEmail, "H^4%!zV4ds", 300) };
 
-            currentPlayer = new PlayerStats(finishedEmail, "dragonslayer69", bankingDetails);
+            currentPlayer = new PlayerStatsModel(finishedEmail, "dragonslayer69", bankingDetails);
         }
+
+
 
         #region UI Binding 
 

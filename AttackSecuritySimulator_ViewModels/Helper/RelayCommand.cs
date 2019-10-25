@@ -17,6 +17,7 @@ namespace AttackSecuritySimulator_ViewModels
     {
         private readonly Action<object> actionCommand;
         private readonly Predicate<object> actionCondition;
+        
 
         //Constructor for command if no condition is needed to for it execute.
         public RelayCommand(Action<object> action) : this(action, null)
@@ -36,7 +37,18 @@ namespace AttackSecuritySimulator_ViewModels
 
         #region ICommand Implementation
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add
+            {
+                CommandManager.RequerySuggested += value;
+            }
+            remove
+            {
+                CommandManager.RequerySuggested -= value;
+            }
+
+        }
 
         public bool CanExecute(object parameter)
         {

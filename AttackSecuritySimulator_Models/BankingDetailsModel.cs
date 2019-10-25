@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AttackSecuritySimulator_Models
 {
-    public class BankingDetails
+    public class BankingDetailsModel
     {
         private string login = "user";
         public string Login { get { return login; } }
@@ -15,7 +15,7 @@ namespace AttackSecuritySimulator_Models
         private double balance = 0;
         public double Balance { get { return balance; } }
 
-        public BankingDetails(string setName, string setPassword, double setAmount)
+        public BankingDetailsModel(string setName, string setPassword, double setAmount)
         {
             login = setName;
             password = setPassword;
