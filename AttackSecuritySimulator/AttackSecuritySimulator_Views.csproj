@@ -55,6 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\PlayerCreationView.xaml.cs">
+      <DependentUpon>PlayerCreationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPageNavigationView.xaml.cs">
+      <DependentUpon>WebPageNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\PlayerCreationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\InGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\PlayerStatsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WebPageNavigationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

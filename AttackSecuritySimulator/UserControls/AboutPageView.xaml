@@ -24,16 +24,20 @@
                        FontSize="80"
                        Foreground="{StaticResource TextColourBrush}"
                        HorizontalAlignment="Center"/>
-                <TextBlock FontSize="45"
+                <TextBlock FontSize="30"
                            Foreground="{StaticResource TextColourBrush}"
                            Margin="0,30,0,0"
                            TextWrapping="WrapWithOverflow">
-
                         Hello world. This game was made to raise awareness to cyber 
                         sercurity attacks by simulating cyber security threats like
                         Keylogging and Phishing as you go through everyday activities on
-                        the web.
-                    
+                        the web.                   
+                </TextBlock>
+                <TextBlock FontSize="30"
+                           Foreground="{StaticResource TextColourBrush}"
+                           Margin="0,30,0,0"
+                           TextWrapping="WrapWithOverflow">
+                        This project was sanctioned by the University of Canberra.
                 </TextBlock>
 
                 <Button Style="{StaticResource MenuButtons}"

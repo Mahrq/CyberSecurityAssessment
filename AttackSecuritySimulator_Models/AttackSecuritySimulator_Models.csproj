@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="BankingDetailsModel.cs" />
     <Compile Include="Enums\BankType.cs" />
+    <Compile Include="IEBrowserSetUp.cs" />
     <Compile Include="PlayerStatsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enums\WebAddress.cs" />
+    <Compile Include="WebAddressLibraryModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

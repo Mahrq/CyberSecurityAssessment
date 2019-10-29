@@ -7,34 +7,54 @@
              xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="680" d:DesignWidth="1280">
+    <UserControl.DataContext>
+        <vm:InGameViewModel/>
+    </UserControl.DataContext>
     <Grid>
-        <!--ViewModel-->
-        <Grid.DataContext>
-            <vm:InGameViewModel/>
-        </Grid.DataContext>
-        
+        <Grid.Resources>
+            <!--Player stats view-->
+            <DataTemplate DataType="{x:Type vm:PlayerStatsViewModel}">
+                <local:PlayerStatsView/>
+            </DataTemplate>
+            <!--Web site navigation buttons-->
+            <DataTemplate DataType="{x:Type vm:WebPageNavigationViewModel}">
+                <local:WebPageNavigationView/>
+            </DataTemplate>
+        </Grid.Resources>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!--Web Browser-->
-        <ContentControl Grid.Column="0"/>
+        <ContentControl Grid.Column="0" Content="{Binding Browser}"/>
 
 
         <!--Side Menu Definition-->
         <Grid Grid.Column="1" Background="{StaticResource BlackGrey}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!--Sticky Notes png-->
             <ContentControl Grid.Row="0"/>
+            <!--Details-->
+            <ContentControl Grid.Row="1" Content="{Binding CurrentMidTabDisplayed}"/>
             <!--Side Buttons-->
-            <StackPanel Grid.Row="1">
-                <Button Content="HomePage"
-                        Background="{StaticResource BlackGrey}"
-                        Foreground="{StaticResource TextColourBrush}"
-                        />
+            <StackPanel Grid.Row="2">
+                <Button Content="{Binding TxtDetailsButton}"
+                        Style="{StaticResource SmallButton}"
+                        Command="{Binding SwitchInfoCommand}"
+                        Margin="0,10,0,10"/>
+                <Button Content="Home Page"
+                        Style="{StaticResource SmallButton}"
+                        Command="{Binding NavToHome}"
+                        Margin="0,0,0,10"/>
+                <Button Content="Main Menu"
+                        Style="{StaticResource SmallButton}"
+                        Command="{Binding ReturnToMainMenu}"
+                        Margin="0,0,0,0"/>
             </StackPanel>
 
         </Grid>

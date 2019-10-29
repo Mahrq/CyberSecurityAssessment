@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="AttackSecuritySimulator.WebPageNavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AttackSecuritySimulator"
+             xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="225" d:DesignWidth="225">
+
+    <UserControl.DataContext>
+        <vm:WebPageNavigationViewModel/>
+    </UserControl.DataContext>
+
+    <StackPanel>
+        <Button Content="FaceBook"
+                Style="{StaticResource SmallButton}"
+                Command="{Binding Button1Command}"
+                Margin="0,10,0,10"/>
+        <Button Content="Bank"
+                Style="{StaticResource SmallButton}"
+                Command="{Binding Button2Command}"
+                Margin="0,0,0,10"/>
+        <Button Content="PayPal"
+                Style="{StaticResource SmallButton}"
+                Command="{Binding Button3Command}"
+                Margin="0,0,0,10"/>
+    </StackPanel>
+</UserControl>

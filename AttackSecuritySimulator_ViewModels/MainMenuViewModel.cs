@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 namespace AttackSecuritySimulator_ViewModels
 {
+    /// <summary>
+    /// The Main Menu view contains various buttons that navigate into new pages.
+    /// </summary>
     public class MainMenuViewModel : IPageViewModel
     {
         private ICommand displayAboutPage;
@@ -15,7 +18,8 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (displayAboutPage == null)
                 {
-                    displayAboutPage = new RelayCommand(x => Mediator.Notify("NavAbout", ""));
+                    //displayAboutPage = new RelayCommand(command => Mediator.Notify("NavAbout", ""));
+                    displayAboutPage = NavigationHelper.NavPageCommands[(int)Page.About];
                 }
                 return displayAboutPage;
             }
@@ -28,15 +32,39 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (displayCreditPage == null)
                 {
-                    displayCreditPage = new RelayCommand(x => Mediator.Notify("NavCredits", ""));
+                    //displayCreditPage = new RelayCommand(command => Mediator.Notify("NavCredits", ""));
+                    displayCreditPage = NavigationHelper.NavPageCommands[(int)Page.Credits];
                 }
                 return displayCreditPage;
             }
         }
 
-        //private ICommand displayPlayerCreation;
+        private ICommand displayPlayerCreation;
+        public ICommand DisplayPlayerCreation
+        {
+            get
+            {
+                if (displayPlayerCreation == null)
+                {
+                    displayPlayerCreation = NavigationHelper.NavPageCommands[(int)Page.PlayerCreation]; 
+                }
+                return displayPlayerCreation;
+            }
+        }
 
-        //private ICommand displayIngame;
+        private ICommand displayInGame;
+        public ICommand DisplayInGame
+        {
+            get
+            {
+                if (displayInGame == null)
+                {
+                    //displayInGame = new RelayCommand(command => Mediator.Notify("NavIngame", ""));
+                    displayInGame = NavigationHelper.NavPageCommands[(int)Page.InGame];
+                }
+                return displayInGame;
+            }
+        }
 
         private ICommand quitGame;
         public ICommand QuitGame
@@ -51,7 +79,7 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
-        private void AppExit(object obj)
+        private void AppExit(object sender)
         {
             Environment.Exit(0);
         }

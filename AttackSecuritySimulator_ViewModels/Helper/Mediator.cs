@@ -26,7 +26,7 @@ namespace AttackSecuritySimulator_ViewModels
                 //Check if the action is in this collection specified by the key exist
                 bool found = false;
                 //Iterate through the list of Actions at the specified key
-                foreach (var item in eventDictionary[key])
+                foreach (Action<object> item in eventDictionary[key])
                 {
                     //If the specifed action is found in the list of actions then check is true otherwise add the action into the list.
                     if (item.Method.ToString() == callBack.Method.ToString())

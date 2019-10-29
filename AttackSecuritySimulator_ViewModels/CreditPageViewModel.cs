@@ -16,7 +16,8 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (displayMainMenu == null)
                 {
-                    displayMainMenu = new RelayCommand(x => Mediator.Notify("NavMainMenu", ""));
+                    //displayMainMenu = new RelayCommand(command => Mediator.Notify("NavMainMenu", ""));
+                    displayMainMenu = NavigationHelper.NavPageCommands[(int)Page.MainMenu];
                 }
                 return displayMainMenu;
             }

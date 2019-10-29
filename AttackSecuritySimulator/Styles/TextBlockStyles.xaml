@@ -3,9 +3,19 @@
                     xmlns:local="clr-namespace:AttackSecuritySimulator">
 
     <Style TargetType="TextBlock" x:Key="StandardInformation">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColourBrush}"/>
+        <Setter Property="Margin" Value="0,2,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="TextInputField">
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="Foreground" Value="{StaticResource TextColourBrush}"/>
+        <Setter Property="Background" Value="{StaticResource BlackGrey}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource InteractableBrush}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="Width" Value="400"/>
     </Style>
-    
-    
+
 </ResourceDictionary>

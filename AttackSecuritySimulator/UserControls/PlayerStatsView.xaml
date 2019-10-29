@@ -6,87 +6,52 @@
              xmlns:local="clr-namespace:AttackSecuritySimulator"
              xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="225" d:DesignWidth="225">
 
     <!--ViewModel For PlayerStats side Tab-->
     <UserControl.DataContext>
         <vm:PlayerStatsViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel Style="{StaticResource PanelGradientBlack}">
-        <Label Content="My Log in Details" 
-               FontSize="50" 
-               FontWeight="Bold"
-               Foreground="{StaticResource TextColourBrush}"
-               Background="DarkMagenta"
-               HorizontalAlignment="Center"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <TextBlock Text="Email" 
-                           FontSize="30" 
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="Email Password" 
-                           FontSize="30"
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="Bank no." 
-                           FontSize="30"
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="Bank Password" 
-                           FontSize="30"
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="PayPal" 
-                           FontSize="30"
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="PayPal Password" 
-                           FontSize="30"
-                           Margin="0,10,0,0"
-                           HorizontalAlignment="Center"
-                           Foreground="{StaticResource TextColourBrush}"/>
-            </StackPanel>
-            <!--Player Details-->
-            <StackPanel Grid.Column="1">
-                <!--Email details-->
-                <TextBlock Text="{Binding TxtEmailLogIn}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="{Binding TxtEmailPassword}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <!--Anz Details-->
-                <TextBlock Text="{Binding TxtAnzLogIn}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="{Binding TxtAnzPassword}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <!--PayPal Details-->
-                <TextBlock Text="{Binding TxtPayPalLogIn}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-                <TextBlock Text="{Binding TxtPayPalPassword}" 
-                           FontSize="30" 
-                           Margin=" 10,10,0,0" 
-                           Foreground="{StaticResource TextColourBrush}"/>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
+    <ContentControl>
+        <StackPanel>
+            <!--Email-->
+            <TextBlock Text="Email"
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtEmailLogIn}"
+                       Style="{StaticResource StandardInformation}"/>
+            <!--Email Password-->
+            <TextBlock Text="Email Password"
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtEmailPassword}"
+                       Style="{StaticResource StandardInformation}"/>
+            <!--Bank No.-->
+            <TextBlock Text="Bank No."
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtAnzLogIn}"
+                       Style="{StaticResource StandardInformation}"/>
+            <!--Bank Password-->
+            <TextBlock Text="Bank Password"
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtAnzPassword}"
+                       Style="{StaticResource StandardInformation}"/>
+            <!--PayPal-->
+            <TextBlock Text="PayPal"
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtPayPalLogIn}"
+                       Style="{StaticResource StandardInformation}"/>
+            <!--PayPal Password-->
+            <TextBlock Text="PayPal Password"
+                       Style="{StaticResource StandardInformation}"
+                       FontWeight="ExtraBold"/>
+            <TextBlock Text="{Binding TxtPayPalPassword}"
+                       Style="{StaticResource StandardInformation}"/>
+        </StackPanel>
+    </ContentControl>
+    
 </UserControl>

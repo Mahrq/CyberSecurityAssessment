@@ -7,11 +7,8 @@
         xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
+        Title="Attack Security Simulator" Height="720" Width="1280" MinHeight="720" MinWidth="1280">
     
-    <Window.Resources>
-        <vm:MainWindowViewModel x:Key="MainWindowPageViewer"/>
-    </Window.Resources>
     <!--MainWindow Contents-->
     <Border Padding="5" Background="{StaticResource BackGroundBrush}">
         <!--ViewModel for MainWindow-->
@@ -31,6 +28,14 @@
             <!--Credits Page-->
             <DataTemplate DataType="{x:Type vm:CreditPageViewModel}">
                 <local:CreditsPageView/>
+            </DataTemplate>
+            <!--Player Creation Page-->
+            <DataTemplate DataType="{x:Type vm:PlayerCreationViewModel}">
+                <local:PlayerCreationView/>
+            </DataTemplate>
+            <!--InGame Page-->
+            <DataTemplate DataType="{x:Type vm:InGameViewModel}">
+                <local:InGameView/>
             </DataTemplate>
         </Border.Resources>
 

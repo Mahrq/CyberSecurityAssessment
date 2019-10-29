@@ -12,7 +12,7 @@ namespace AttackSecuritySimulator_ViewModels
     ///                 When the user needs to log into the websites, they will be prompt to
     ///                 enter creditials
     /// </summary>
-    public class PlayerStatsViewModel : BaseViewModelPropertyChanged
+    public class PlayerStatsViewModel : BaseViewModelPropertyChanged, IPageViewModel
     {
         //This name will be retrieved from another ViewModel where the player has input their name.
         private string inputName;
@@ -44,8 +44,6 @@ namespace AttackSecuritySimulator_ViewModels
 
             currentPlayer = new PlayerStatsModel(finishedEmail, "dragonslayer69", bankingDetails);
         }
-
-
 
         #region UI Binding 
 

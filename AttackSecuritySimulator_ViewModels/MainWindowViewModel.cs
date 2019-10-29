@@ -16,7 +16,6 @@ namespace AttackSecuritySimulator_ViewModels
     {
         //Current user control displayed
         private IPageViewModel currentPageDisplayed;
-
         public IPageViewModel CurrentPageDisplayed
         {
             get
@@ -62,8 +61,8 @@ namespace AttackSecuritySimulator_ViewModels
             CollectionOfPages.Add(new MainMenuViewModel());
             CollectionOfPages.Add(new AboutPageViewModel());
             CollectionOfPages.Add(new CreditPageViewModel());
-            //TODO Add Player creation page
-            //TODO Add Ingame page
+            CollectionOfPages.Add(new PlayerCreationViewModel()); // change to player creation
+            CollectionOfPages.Add(new InGameViewModel());
 
             CurrentPageDisplayed = CollectionOfPages[(int)Page.MainMenu];
 
@@ -76,45 +75,43 @@ namespace AttackSecuritySimulator_ViewModels
 
         #region Page Display Events
 
-        private void DisplayMainMenuPage(object obj)
+        private void DisplayMainMenuPage(object sender)
         {
             ChnageCurrentDisplayPage((int)Page.MainMenu);
         }
 
-        private void DisplayAboutPage(object obj)
+        private void DisplayAboutPage(object sender)
         {
             ChnageCurrentDisplayPage((int)Page.About);
         }
 
-        private void DisplayCreditPage(object obj)
+        private void DisplayCreditPage(object sender)
         {
             ChnageCurrentDisplayPage((int)Page.Credits);
         }
 
-        private void DisplayPlayerCreationPage(object obj)
+        private void DisplayPlayerCreationPage(object sender)
         {
             ChnageCurrentDisplayPage((int)Page.PlayerCreation);
         }
 
-        private void DisplayIngamePage(object obj)
+        private void DisplayIngamePage(object sender)
         {
             ChnageCurrentDisplayPage((int)Page.InGame);
         }
         #endregion
+    }
 
-
-        /// <summary>
-        /// A Page is a UserControl that encompasses the main window.
-        /// They can be refered to as a scene.
-        /// </summary>
-        private enum Page
-        {
-            MainMenu,
-            About,
-            Credits,
-            PlayerCreation,
-            InGame
-        }
-
+    /// <summary>
+    /// A Page is a UserControl that encompasses the main window.
+    /// They can be refered to as a scene.
+    /// </summary>
+    public enum Page
+    {
+        MainMenu,
+        About,
+        Credits,
+        PlayerCreation,
+        InGame
     }
 }

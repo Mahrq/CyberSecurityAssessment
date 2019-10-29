@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="AttackSecuritySimulator.PlayerCreationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AttackSecuritySimulator"
+             xmlns:vm="clr-namespace:AttackSecuritySimulator_ViewModels;assembly=AttackSecuritySimulator_ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="1280">
+    <UserControl.DataContext>
+        <vm:PlayerCreationViewModel/>
+    </UserControl.DataContext>
+
+    <Border Background="{StaticResource BackGroundBrush}">
+        <StackPanel HorizontalAlignment="Center">
+            <!--Page Label-->
+            <Label Content="Player Creation"
+                   Foreground="{StaticResource TextColourBrush}"
+                   FontSize="80"/>
+            <!--Player Name-->
+            <TextBlock Text="Enter your name"
+                       Style="{StaticResource StandardInformation}"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Margin="0,40,0,10"/>
+            <TextBox Text="{Binding PlayerName, Mode=TwoWay}"
+                     Style="{StaticResource TextInputField}"
+                     Padding="10,0,10,10"
+                     Margin="0,0,0,20"/>
+            <!--Player Likes-->
+            <TextBlock Text="Something you like"
+                       Style="{StaticResource StandardInformation}"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Margin="0,10,0,10"/>
+            <TextBox Text="{Binding PlayerLike, Mode=TwoWay}"
+                     Style="{StaticResource TextInputField}"
+                     Padding="10,0,10,10"
+                     Margin="0,0,0,20"/>
+            <!--Player Dislikes-->
+            <TextBlock Text="Something you Hate"
+                       Style="{StaticResource StandardInformation}"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Margin="0,10,0,10"/>
+            <TextBox Text="{Binding PlayerHate, Mode=TwoWay}"
+                     Style="{StaticResource TextInputField}"
+                     Padding="10,0,10,10"
+                     Margin="0,0,0,20"/>
+            <!--Submit Details-->
+            <Button Content="Start"
+                    Style="{StaticResource MenuButtons}"
+                    Command="{Binding StartGame}"/>
+        </StackPanel>
+    </Border>
+
+</UserControl>
