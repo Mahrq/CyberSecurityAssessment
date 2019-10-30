@@ -14,38 +14,59 @@ namespace AttackSecuritySimulator_ViewModels
     /// </summary>
     public class PlayerStatsViewModel : BaseViewModelPropertyChanged, IPageViewModel
     {
-        //This name will be retrieved from another ViewModel where the player has input their name.
-        private string inputName;
-        public string InputName
+        private PlayerStatsModel currentPlayer;
+        public PlayerStatsModel CurrentPlayer
         {
             get
             {
-                if (inputName == null)
+                if (PlayerCreationViewModel.CustomPlayer == null)
                 {
-                    return "PlayerTest";
+                    return currentPlayer = null;
                 }
-                return inputName;
+                return currentPlayer;
+            }
+            set
+            {
+                currentPlayer = value;
+                OnPropertyChanged("TxtEmailLogIn");
+                OnPropertyChanged("TxtEmailPassword");
+                OnPropertyChanged("TxtAnzLogIn");
+                OnPropertyChanged("TxtAnzPassword");
+                OnPropertyChanged("TxtPayPalLogIn");
+                OnPropertyChanged("TxtPayPalPassword");
             }
         }
 
-        private PlayerStatsModel currentPlayer;
-        public PlayerStatsModel CurrentPlayer { get { return currentPlayer; } }
-
+        /// <summary>
+        /// Initially this ViewModel is created after the user has clicked the button to finalise their player.
+        /// The constructor checks to see if the custom player is 
+        /// </summary>
         public PlayerStatsViewModel()
         {
-            FinishPlayerCreation(InputName);
+            if (PlayerCreationViewModel.CustomPlayer != null)
+            {
+                CurrentPlayer = PlayerCreationViewModel.CustomPlayer;
+            }
+            else
+            {
+                FinishPlayerCreation();
+            }           
         }
 
-        private void FinishPlayerCreation(string name)
+        /// <summary>
+        /// Generic player creation on initialise.
+        /// Used to see format in designer view.
+        /// </summary>
+        private void FinishPlayerCreation()
         {
-            string finishedEmail = string.Format($"{name}@gmail.com");        
+            string finishedEmail = string.Format("PlayerTest@gmail.com");        
             BankingDetailsModel[] bankingDetails = {new BankingDetailsModel("379600354", "ilikecats", 1000),
                                                 new BankingDetailsModel(finishedEmail, "H^4%!zV4ds", 300) };
 
             currentPlayer = new PlayerStatsModel(finishedEmail, "dragonslayer69", bankingDetails);
         }
 
-        #region UI Binding 
+        #region UI Data Context Binding 
 
         //Email details
         public string TxtEmailLogIn

@@ -23,30 +23,33 @@
                        FontSize="30"
                        FontWeight="Bold"
                        Margin="0,40,0,10"/>
-            <TextBox Text="{Binding PlayerName, Mode=TwoWay}"
+            <TextBox Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource TextInputField}"
                      Padding="10,0,10,10"
-                     Margin="0,0,0,20"/>
+                     Margin="0,0,0,20"
+                     MaxLength="{Binding InputFieldCharacterLimit}"/>
             <!--Player Likes-->
             <TextBlock Text="Something you like"
                        Style="{StaticResource StandardInformation}"
                        FontSize="30"
                        FontWeight="Bold"
                        Margin="0,10,0,10"/>
-            <TextBox Text="{Binding PlayerLike, Mode=TwoWay}"
+            <TextBox Text="{Binding PlayerLike, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource TextInputField}"
                      Padding="10,0,10,10"
-                     Margin="0,0,0,20"/>
+                     Margin="0,0,0,20"
+                     MaxLength="{Binding InputFieldCharacterLimit}"/>
             <!--Player Dislikes-->
-            <TextBlock Text="Something you Hate"
+            <TextBlock Text="Something you hate"
                        Style="{StaticResource StandardInformation}"
                        FontSize="30"
                        FontWeight="Bold"
                        Margin="0,10,0,10"/>
-            <TextBox Text="{Binding PlayerHate, Mode=TwoWay}"
+            <TextBox Text="{Binding PlayerHate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource TextInputField}"
                      Padding="10,0,10,10"
-                     Margin="0,0,0,20"/>
+                     Margin="0,0,0,20"
+                     MaxLength="{Binding InputFieldCharacterLimit}"/>
             <!--Submit Details-->
             <Button Content="Start"
                     Style="{StaticResource MenuButtons}"

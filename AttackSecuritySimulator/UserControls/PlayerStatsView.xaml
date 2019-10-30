@@ -13,45 +13,50 @@
         <vm:PlayerStatsViewModel/>
     </UserControl.DataContext>
 
-    <ContentControl>
-        <StackPanel>
-            <!--Email-->
-            <TextBlock Text="Email"
+    <Border BorderThickness="3"
+            BorderBrush="#131313">
+        <ContentControl>
+            <StackPanel>
+                <!--Email-->
+                <TextBlock Text="Email"
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtEmailLogIn}"
+                <TextBlock Text="{Binding TxtEmailLogIn}"
                        Style="{StaticResource StandardInformation}"/>
-            <!--Email Password-->
-            <TextBlock Text="Email Password"
+                <!--Email Password-->
+                <TextBlock Text="Email Password"
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtEmailPassword}"
+                <TextBlock Text="{Binding TxtEmailPassword}"
                        Style="{StaticResource StandardInformation}"/>
-            <!--Bank No.-->
-            <TextBlock Text="Bank No."
+                <!--Bank No.-->
+                <TextBlock Text="Bank No."
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtAnzLogIn}"
+                <TextBlock Text="{Binding TxtAnzLogIn}"
                        Style="{StaticResource StandardInformation}"/>
-            <!--Bank Password-->
-            <TextBlock Text="Bank Password"
+                <!--Bank Password-->
+                <TextBlock Text="Bank Password"
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtAnzPassword}"
+                <TextBlock Text="{Binding TxtAnzPassword}"
                        Style="{StaticResource StandardInformation}"/>
-            <!--PayPal-->
-            <TextBlock Text="PayPal"
+                <!--PayPal-->
+                <TextBlock Text="PayPal"
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtPayPalLogIn}"
+                <TextBlock Text="{Binding TxtPayPalLogIn}"
                        Style="{StaticResource StandardInformation}"/>
-            <!--PayPal Password-->
-            <TextBlock Text="PayPal Password"
+                <!--PayPal Password-->
+                <TextBlock Text="PayPal Password"
                        Style="{StaticResource StandardInformation}"
                        FontWeight="ExtraBold"/>
-            <TextBlock Text="{Binding TxtPayPalPassword}"
+                <TextBlock Text="{Binding TxtPayPalPassword}"
                        Style="{StaticResource StandardInformation}"/>
-        </StackPanel>
-    </ContentControl>
+            </StackPanel>
+        </ContentControl>
+    </Border>
+    
+
     
 </UserControl>

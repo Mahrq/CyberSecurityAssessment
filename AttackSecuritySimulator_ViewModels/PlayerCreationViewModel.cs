@@ -10,12 +10,12 @@ namespace AttackSecuritySimulator_ViewModels
 {
     public class PlayerCreationViewModel : BaseViewModelPropertyChanged, IPageViewModel
     {
-        private PlayerStatsModel customPlayer;
-        public PlayerStatsModel CustomPlayer
+        private static PlayerStatsModel customPlayer;
+        public static PlayerStatsModel CustomPlayer
         {
             get
             {
-                //Custom payer will be defined when the Button is clicked
+                //Custom player will be defined when the Button is clicked
                 if (customPlayer == null)
                 {
                     return null;
@@ -36,6 +36,13 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
         private int inputFieldCharacterLimit = 12;
+        public int InputFieldCharacterLimit
+        {
+            get
+            {
+                return inputFieldCharacterLimit;
+            }
+        }
         private bool InputValidation(string input)
         {
             //Check if the inputted string is within 12 characters and only contains letters and digits.
@@ -61,13 +68,32 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
-
-
         private void FinalisePlayerAndStart(object sender)
         {
             //Finalise player stats
-
+            Random random = new Random();
+            string finalisedEmail = string.Format($"{PlayerName}@gmail.com");
+            string finalisedEmailPassword = string.Format($"{PlayerHate}slayer69");
+            char[] finalisedBankNumber = new char[9];
+            for (int i = 0; i < finalisedBankNumber.Length; i++)
+            {
+                finalisedBankNumber[i] = random.Next(0, 10).ToString()[0];
+            }
+            string finalisedBankPassword = string.Format($"iL0ve{PlayerLike}");
+            char[] finalisedPayPalPassword = new char[10];
+            for (int i = 0; i < finalisedPayPalPassword.Length; i++)
+            {
+                //Ascii table decimal values : https://www.asciitable.com/
+                //Use .Next to generate printable characters.
+                finalisedPayPalPassword[i] = (char)random.Next(32, 127);
+            }
+            BankingDetailsModel[] customBankDetails = new BankingDetailsModel[2];
+            customBankDetails[(int)BankType.ANZ] = new BankingDetailsModel(new string(finalisedBankNumber), finalisedBankPassword, 1000);
+            customBankDetails[(int)BankType.PayPal] = new BankingDetailsModel(finalisedEmail, new string(finalisedPayPalPassword), 1000);
+            //Create the player model
+            customPlayer = new PlayerStatsModel(finalisedEmail, finalisedEmailPassword, customBankDetails);
             //Send details to hosted server
+
 
             //Navigate to in game
             Mediator.Notify("NavIngame", "");
@@ -140,7 +166,6 @@ namespace AttackSecuritySimulator_ViewModels
         }
 
         #endregion
-
 
         private enum InputField
         {
