@@ -39,7 +39,7 @@ namespace AttackSecuritySimulator_ViewModels
         /// <summary>
         /// Navigates the current instance of the web browser(Defined in InGameViewModel) to the web address.
         /// </summary>
-        private static void NavToWebAddress(Uri webAddress)
+        public static void NavToWebAddress(Uri webAddress)
         {
             InGameViewModel.Browser.Navigate(webAddress);
         }
@@ -64,20 +64,25 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (navBrowserCommands == null)
                 {
-                    navBrowserCommands = new ICommand[4];
+                    navBrowserCommands = new ICommand[5];
                     //Navigate to Youtube
-                    navBrowserCommands[(int)WebAddress.Youtube] = new RelayCommand<WebPageNavigationViewModel>(
+                    navBrowserCommands[0] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.Youtube)));
                     //Navigate to FaceBook
-                    navBrowserCommands[(int)WebAddress.FaceBook] = new RelayCommand<WebPageNavigationViewModel>(
+                    navBrowserCommands[1] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FaceBook)));
                     //Navigate to ANZ Bank
-                    navBrowserCommands[(int)WebAddress.ANZBank] = new RelayCommand<WebPageNavigationViewModel>(
+                    navBrowserCommands[2] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.ANZBank)));
                     //Navigate to PayPal
-                    navBrowserCommands[(int)WebAddress.PayPal] = new RelayCommand<WebPageNavigationViewModel>(
+                    navBrowserCommands[3] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.PayPal)));
                     //TODO: Add the server side addresses to commands.
+                    //Home
+                    //Fake Bank
+                    navBrowserCommands[4] = new RelayCommand<WebPageNavigationViewModel>(
+                        command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FakeBank)));
+                    //Fake Paypal
 
                 }
                 return navBrowserCommands;

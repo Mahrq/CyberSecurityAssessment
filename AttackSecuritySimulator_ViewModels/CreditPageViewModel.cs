@@ -22,7 +22,5 @@ namespace AttackSecuritySimulator_ViewModels
                 return displayMainMenu;
             }
         }
-
-
     }
 }

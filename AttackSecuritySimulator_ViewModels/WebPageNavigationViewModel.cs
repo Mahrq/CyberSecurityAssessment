@@ -33,7 +33,7 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (button2Command == null)
                 {
-                    button2Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.ANZBank];
+                    button2Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.FakeBank];
                 }
                 return button2Command;
             }

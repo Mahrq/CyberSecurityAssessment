@@ -28,7 +28,38 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Project Director:"
                            Style="{StaticResource StandardInformation}"
-                           Margin="300,40,0,0"
+                           Margin="200,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Producer:"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="200,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Programmer(Client):"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="200,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Programmer(Server):"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="200,40,0,0"
+                           FontSize="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <!--Person Name-->
+                <TextBlock Text="Dr. Reza"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="00,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Jordan Comino"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="00,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Mark Mendoza"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="00,40,0,0"
+                           FontSize="30"/>
+                <TextBlock Text="Peter Thompson"
+                           Style="{StaticResource StandardInformation}"
+                           Margin="00,40,0,0"
                            FontSize="30"/>
             </StackPanel>
         </Grid>
@@ -36,7 +67,7 @@
         <Button Style="{StaticResource MenuButtons}"
                 Content="Back"
                 Command="{Binding DisplayMainMenu}"
-                Margin="0,40,0,0"
+                Margin="0,100,0,0"
                 HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

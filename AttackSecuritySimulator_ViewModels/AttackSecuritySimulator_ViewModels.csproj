@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AttackSecuritySimulator_ViewModels</RootNamespace>
     <AssemblyName>AttackSecuritySimulator_ViewModels</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,7 +52,9 @@
     <Compile Include="Helper\EventRaiser.cs" />
     <Compile Include="Helper\EventArgs.cs" />
     <Compile Include="Helper\IPageViewModel.cs" />
+    <Compile Include="Helper\IPoolSubscriber.cs" />
     <Compile Include="Helper\NavigationHelper.cs" />
+    <Compile Include="Helper\ViewModelPool.cs" />
     <Compile Include="InGameViewModel.cs" />
     <Compile Include="MainMenuViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />

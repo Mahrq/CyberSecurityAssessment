@@ -19,7 +19,7 @@ namespace AttackSecuritySimulator_ViewModels
 
         protected void OnPropertyChanged(string propertyName)
         {
-            VerifyPropertyName(propertyName);
+            //VerifyPropertyName(propertyName);
             var handler = PropertyChanged;
             if (handler != null)
             {

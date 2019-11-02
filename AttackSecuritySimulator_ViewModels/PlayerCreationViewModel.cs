@@ -8,7 +8,7 @@ using AttackSecuritySimulator_Models;
 
 namespace AttackSecuritySimulator_ViewModels
 {
-    public class PlayerCreationViewModel : BaseViewModelPropertyChanged, IPageViewModel
+    public class PlayerCreationViewModel : BaseViewModelPropertyChanged, IPageViewModel, IPoolSubscriber
     {
         private static PlayerStatsModel customPlayer;
         public static PlayerStatsModel CustomPlayer
@@ -23,6 +23,20 @@ namespace AttackSecuritySimulator_ViewModels
                 return customPlayer;
             }
         }
+
+        private GameClient currentClient;
+        public GameClient CurrentClient
+        {
+            get
+            {
+                if (currentClient == null)
+                {
+                    return currentClient = null;
+                }
+                return currentClient;
+            }
+        }
+
         private ICommand startGame;
         public ICommand StartGame
         {
@@ -46,7 +60,7 @@ namespace AttackSecuritySimulator_ViewModels
         private bool InputValidation(string input)
         {
             //Check if the inputted string is within 12 characters and only contains letters and digits.
-            if (string.IsNullOrWhiteSpace(input) || input.Length > inputFieldCharacterLimit || !input.All(char.IsLetterOrDigit))
+            if (string.IsNullOrWhiteSpace(input) || input.Length > inputFieldCharacterLimit || input.Any(char.IsSymbol))
             {
                 return false;
             }
@@ -72,14 +86,17 @@ namespace AttackSecuritySimulator_ViewModels
         {
             //Finalise player stats
             Random random = new Random();
+            //Email Details
             string finalisedEmail = string.Format($"{PlayerName}@gmail.com");
             string finalisedEmailPassword = string.Format($"{PlayerHate}slayer69");
+            //Bank Details
             char[] finalisedBankNumber = new char[9];
             for (int i = 0; i < finalisedBankNumber.Length; i++)
             {
                 finalisedBankNumber[i] = random.Next(0, 10).ToString()[0];
             }
             string finalisedBankPassword = string.Format($"iL0ve{PlayerLike}");
+            //PayPal Details
             char[] finalisedPayPalPassword = new char[10];
             for (int i = 0; i < finalisedPayPalPassword.Length; i++)
             {
@@ -87,13 +104,21 @@ namespace AttackSecuritySimulator_ViewModels
                 //Use .Next to generate printable characters.
                 finalisedPayPalPassword[i] = (char)random.Next(32, 127);
             }
+            //Create BankingDetails param
             BankingDetailsModel[] customBankDetails = new BankingDetailsModel[2];
             customBankDetails[(int)BankType.ANZ] = new BankingDetailsModel(new string(finalisedBankNumber), finalisedBankPassword, 1000);
             customBankDetails[(int)BankType.PayPal] = new BankingDetailsModel(finalisedEmail, new string(finalisedPayPalPassword), 1000);
             //Create the player model
             customPlayer = new PlayerStatsModel(finalisedEmail, finalisedEmailPassword, customBankDetails);
+            //Create the client to the hosted server
+            currentClient = new GameClient(CurrentServerIP);
             //Send details to hosted server
-
+            if (CurrentClient.ConnectedToServer)
+            {
+                string fileNameToServer = "ASS_Details";
+                string fileContentsToServer = customPlayer.ToString();
+                CurrentClient.SendTextFileToServer(fileContentsToServer, fileNameToServer);
+            }
 
             //Navigate to in game
             Mediator.Notify("NavIngame", "");
@@ -165,7 +190,36 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
+        private string currentServerIP;
+        public string CurrentServerIP
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(currentServerIP))
+                {
+                    return currentServerIP = "123.211.10.65";
+                }
+                return currentServerIP;
+            }
+            set
+            {
+                currentServerIP = value;
+                OnPropertyChanged("CurrentServerIP");
+            }
+        }
+
         #endregion
+
+        public string InstanceKey()
+        {
+            return "PlayerCreationViewModel";
+        }
+
+        public PlayerCreationViewModel()
+        {
+            //Add this instance to the pool.
+            ViewModelPool.AddToPool(this.InstanceKey(), this);
+        }
 
         private enum InputField
         {

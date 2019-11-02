@@ -10,7 +10,7 @@
     </Style>
 
     <Style TargetType="TextBox" x:Key="TextInputField">
-        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontSize" Value="24"/>
         <Setter Property="Foreground" Value="{StaticResource TextColourBrush}"/>
         <Setter Property="Background" Value="{StaticResource BlackGrey}"/>
         <Setter Property="BorderBrush" Value="{StaticResource InteractableBrush}"/>

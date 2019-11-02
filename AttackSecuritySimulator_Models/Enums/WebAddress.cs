@@ -15,8 +15,9 @@ namespace AttackSecuritySimulator_Models
         ANZBank,
         PayPal,
         //Fake, set up, server addresses
-        Home,
         FakeBank,
-        FakePayPal
+        FakePayPal,
+        Home
+
     }
 }

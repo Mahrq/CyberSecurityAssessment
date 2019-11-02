@@ -20,5 +20,18 @@ namespace AttackSecuritySimulator_Models
             AnzBankDetails = bankingDetails[0];
             PayPalDetails = bankingDetails[1];
         }
+
+        /// <summary>
+        /// Ovveride version provides the player's details in a formatted way to allow
+        /// it to be sent.
+        /// </summary>
+        public override string ToString()
+        {
+            string formattedPlayerStats = $"Email\n{Email}\n{EmailPassword}" +
+                $"\n\nBanking\n{AnzBankDetails.Login}\n{AnzBankDetails.Password}" +
+                $"\n\nPayPal\n{PayPalDetails.Login}\n{PayPalDetails.Password}";
+
+            return formattedPlayerStats;
+        }
     }
 }

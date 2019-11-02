@@ -16,7 +16,7 @@ namespace AttackSecuritySimulator_ViewModels
     /// 
     /// Notes:      Ended up not using this method to change the source property as there
     ///             was another way to do it.
-    ///             However the process of creating properties on Controls that can't normally be binded
+    ///             However the process of creating properties on Controls that can't normally be  DataBinded
     ///             is the same.
     /// </summary>
     public static class BrowserSourceProperty

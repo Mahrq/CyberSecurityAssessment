@@ -13,7 +13,7 @@ using AttackSecuritySimulator_Models;
 /// </summary>
 namespace AttackSecuritySimulator_ViewModels
 {
-    public class InGameViewModel : BaseViewModelPropertyChanged, IPageViewModel
+    public class InGameViewModel : BaseViewModelPropertyChanged, IPageViewModel, IPoolSubscriber
     {
         //Home page property,
         //Displays the desired website when first navigating to the game view.
@@ -77,9 +77,20 @@ namespace AttackSecuritySimulator_ViewModels
             Browser.Navigate(address);
         }
 
+        private void NavAddress(string address)
+        {
+            Browser.Navigate(address);
+        }
+
+        public string InstanceKey()
+        {
+            return "InGameViewModel";
+        }
+
         //Constructor
         public InGameViewModel()
         {
+            ViewModelPool.AddToPool(this.InstanceKey(), this);
             //Set up browser settings
             IEBrowserSetUp browserSetUp = new IEBrowserSetUp();
             browserSetUp.SetBrowserFeatureControl();
@@ -139,6 +150,7 @@ namespace AttackSecuritySimulator_ViewModels
                 CurrentMidTabDisplayed = MidTabViews[(int)TabView.WebPageNav];
             }
         }
+
         private ICommand switchInfoCommand;
         public ICommand SwitchInfoCommand
         {
@@ -186,13 +198,12 @@ namespace AttackSecuritySimulator_ViewModels
                 if (navToBank == null)
                 {
                     navToBank = new RelayCommand<InGameViewModel>(
-                        command => this.NavAddress(AddressLibrary.RetrieveWebAddress(WebAddress.ANZBank))
+                        command => this.NavAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FakeBank))
                         );
                 }
                 return navToBank;
             }
         }
-
         #endregion
     }
 

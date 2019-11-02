@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AttackSecuritySimulator_Models</RootNamespace>
     <AssemblyName>AttackSecuritySimulator_Models</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +45,19 @@
   <ItemGroup>
     <Compile Include="BankingDetailsModel.cs" />
     <Compile Include="Enums\BankType.cs" />
+    <Compile Include="GameClient.cs" />
     <Compile Include="IEBrowserSetUp.cs" />
+    <Compile Include="KeyboardHookSetup.cs" />
     <Compile Include="PlayerStatsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\WebAddress.cs" />
     <Compile Include="WebAddressLibraryModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServerClass\ServerClass.csproj">
+      <Project>{73ac0a57-a93a-486e-8b3f-910935e430e9}</Project>
+      <Name>ServerClass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
