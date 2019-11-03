@@ -20,7 +20,7 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (button1Command == null)
                 {
-                    button1Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.FaceBook];
+                    button1Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.Youtube];
                 }
                 return button1Command;
             }
@@ -33,7 +33,7 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (button2Command == null)
                 {
-                    button2Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.FakeBank];
+                    button2Command = NavigationHelper.NavBrowserCommands[(int)WebAddress.ANZBank];
                 }
                 return button2Command;
             }

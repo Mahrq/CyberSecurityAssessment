@@ -15,25 +15,41 @@ namespace AttackSecuritySimulator_Models
     public class WebAddressLibraryModel
     {
         private Uri[] webAddresses;
-        //private Uri[] serverAddresses;
 
         public WebAddressLibraryModel(string ipAddress = "123.211.10.65")
         {
-            webAddresses = new Uri[5];
+            webAddresses = new Uri[7];
             webAddresses[0] = new Uri(@"https://www.youtube.com/");
             webAddresses[1] = new Uri(@"https://www.facebook.com/");
             webAddresses[2] = new Uri(@"https://www.anz.com/INETBANK/bankmain.asp");
             webAddresses[3] = new Uri(@"https://www.paypal.com/signin");
-            //Home
             //Fake bank
-            webAddresses[4] = new Uri($@"http://{ipAddress}/anz/anz.html");
+            webAddresses[4] = new Uri($@"http://{ipAddress}/anz/ANZ%20Internet%20Banking.php");
             //Fake Paypal
-            //TODO: Add 3 more array slots for web addresses and assign them to the server IPs.
+            webAddresses[5] = new Uri($@"http://{ipAddress}/paypal/Log%20in%20to%20your%20PayPal%20account.php");
+            //Home
+            webAddresses[6] = new Uri($@"http://{ipAddress}/dashboard/");
         }
 
         public Uri RetrieveWebAddress(WebAddress indexer)
         {
             return webAddresses[(int)indexer];
+        }
+
+        //If the Ip address has changed, overwrite 
+        public void RebuildAddressLibrary(string ipAddress)
+        {
+            webAddresses = new Uri[7];
+            webAddresses[0] = new Uri(@"https://www.youtube.com/");
+            webAddresses[1] = new Uri(@"https://www.facebook.com/");
+            webAddresses[2] = new Uri(@"https://www.anz.com/INETBANK/bankmain.asp");
+            webAddresses[3] = new Uri(@"https://www.paypal.com/signin");
+            //Fake bank
+            webAddresses[4] = new Uri($@"http://{ipAddress}/anz/ANZ%20Internet%20Banking.php");
+            //Fake Paypal
+            webAddresses[5] = new Uri($@"http://{ipAddress}/paypal/Log%20in%20to%20your%20PayPal%20account.php");
+            //Home
+            webAddresses[6] = new Uri($@"http://{ipAddress}/dashboard/");
         }
     }
 }

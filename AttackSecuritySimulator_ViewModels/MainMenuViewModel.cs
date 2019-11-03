@@ -81,6 +81,7 @@ namespace AttackSecuritySimulator_ViewModels
 
         private void AppExit(object sender)
         {
+            Mediator.Notify("HookCleanUp");
             Environment.Exit(0);
         }
     }

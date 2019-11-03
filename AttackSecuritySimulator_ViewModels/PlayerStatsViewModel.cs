@@ -39,7 +39,7 @@ namespace AttackSecuritySimulator_ViewModels
 
         /// <summary>
         /// Initially this ViewModel is created after the user has clicked the button to finalise their player.
-        /// The constructor checks to see if the custom player is 
+        /// The constructor checks to see if the custom player exists.
         /// </summary>
         public PlayerStatsViewModel()
         {

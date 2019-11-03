@@ -57,6 +57,11 @@ namespace AttackSecuritySimulator_ViewModels
             }
         }
 
+        public static void UpdateLibrary(string newIP)
+        {
+            AddressLibrary.RebuildAddressLibrary(newIP);
+        }
+
         private static ICommand[] navBrowserCommands;
         public static ICommand[] NavBrowserCommands
         {
@@ -64,7 +69,7 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (navBrowserCommands == null)
                 {
-                    navBrowserCommands = new ICommand[5];
+                    navBrowserCommands = new ICommand[7];
                     //Navigate to Youtube
                     navBrowserCommands[0] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.Youtube)));
@@ -77,13 +82,15 @@ namespace AttackSecuritySimulator_ViewModels
                     //Navigate to PayPal
                     navBrowserCommands[3] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.PayPal)));
-                    //TODO: Add the server side addresses to commands.
-                    //Home
                     //Fake Bank
                     navBrowserCommands[4] = new RelayCommand<WebPageNavigationViewModel>(
                         command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FakeBank)));
                     //Fake Paypal
-
+                    navBrowserCommands[5] = new RelayCommand<WebPageNavigationViewModel>(
+                        command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FakePayPal)));
+                    //Home
+                    navBrowserCommands[6] = new RelayCommand<WebPageNavigationViewModel>(
+                        command => NavToWebAddress(AddressLibrary.RetrieveWebAddress(WebAddress.Home)));
                 }
                 return navBrowserCommands;
             }

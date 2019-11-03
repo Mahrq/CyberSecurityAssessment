@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,14 +30,20 @@ namespace AttackSecuritySimulator_Models
             }
         }
         private IntPtr hookID = IntPtr.Zero;
-
-        public void SetHook(LowLevelKeyboardProc proc)
+        public IntPtr HookID
+        {
+            get
+            {
+                return hookID;
+            }
+        }
+        //Create the hook, after a hook callback has been defined.
+        public void SetHook(LowLevelKeyboardProc callBack)
         {
             using (Process curProcess = Process.GetCurrentProcess())
             using (ProcessModule curModule = curProcess.MainModule)
             {
-
-                hookID = SetWindowsHookEx(WH_KEYBOARD_LL, proc, GetModuleHandle(curModule.ModuleName), 0);
+                hookID = SetWindowsHookEx(WH_KEYBOARD_LL, callBack, GetModuleHandle(curModule.ModuleName), 0);
             }
         }
 
@@ -63,6 +70,10 @@ namespace AttackSecuritySimulator_Models
         //Callback will be defined in another class
         public LowLevelKeyboardProc KeyPressedCallback
         {
+            get
+            {
+                return keyPressCallback;
+            }
             set
             {
                 keyPressCallback = value;

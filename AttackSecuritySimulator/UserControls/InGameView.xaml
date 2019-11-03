@@ -37,9 +37,29 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--Sticky Notes png-->
-            <ContentControl Grid.Row="0"/>
-            <!--Details-->
+            <!--Reminder-->
+            <ContentControl Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource StandardInformation}"
+                               Text="Today's Task"
+                               FontSize="30"
+                               FontWeight="UltraBold"/>
+                    <TextBlock Style="{StaticResource StandardInformation}"
+                               Text="Check bank"
+                               FontSize="18"
+                               Margin="0,30,0,0"/>
+                    <TextBlock Style="{StaticResource StandardInformation}"
+                               Text="Pay steve through Paypal"
+                               FontSize="18"
+                               Margin="0,30,0,0"/>
+                    <TextBlock Style="{StaticResource StandardInformation}"
+                               Text="Destress with youtube"
+                               FontSize="18"
+                               Margin="0,30,0,0"/>
+
+                </StackPanel>
+            </ContentControl>
+                <!--Details-->
             <ContentControl Grid.Row="1" Content="{Binding CurrentMidTabDisplayed}"/>
             <!--Side Buttons-->
             <StackPanel Grid.Row="2">

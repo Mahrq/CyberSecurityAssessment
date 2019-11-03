@@ -10,7 +10,7 @@ namespace AttackSecuritySimulator_ViewModels
     public interface IPoolSubscriber
     {
         /// <summary>
-        /// Pass this method as a parameter when subscribing to the ViewModelPool 
+        /// Pass this method as a parameter when subscribing to the ViewModelPool
         /// </summary>
         string InstanceKey();
     }

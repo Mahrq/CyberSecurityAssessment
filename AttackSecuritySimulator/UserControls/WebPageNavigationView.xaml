@@ -13,7 +13,7 @@
     </UserControl.DataContext>
 
     <StackPanel>
-        <Button Content="FaceBook"
+        <Button Content="Youtube"
                 Style="{StaticResource SmallButton}"
                 Command="{Binding Button1Command}"
                 Margin="0,10,0,10"/>

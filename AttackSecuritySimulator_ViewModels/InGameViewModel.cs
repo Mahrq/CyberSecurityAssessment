@@ -24,11 +24,11 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (homePage == null)
                 {
-                    homePage = AddressLibrary.RetrieveWebAddress(WebAddress.Youtube);
+                    homePage = AddressLibrary.RetrieveWebAddress(WebAddress.Home);
                 }
                 return homePage;
             }
-        } 
+        }
         //Instancce of the address library containing certain websites as well as the server IPs
         private static WebAddressLibraryModel addressLibrary;
         public static WebAddressLibraryModel AddressLibrary
@@ -69,17 +69,6 @@ namespace AttackSecuritySimulator_ViewModels
                 }
                 return midTabViews;
             }
-        }
-
-        //Navigates the browser to a given web address.
-        private void NavAddress(Uri address)
-        {
-            Browser.Navigate(address);
-        }
-
-        private void NavAddress(string address)
-        {
-            Browser.Navigate(address);
         }
 
         public string InstanceKey()
@@ -132,6 +121,7 @@ namespace AttackSecuritySimulator_ViewModels
         #endregion
 
         #region Button Command Definition
+
         /// <summary>
         /// Switches the middle tab of the side bar to another view.
         /// </summary>
@@ -171,7 +161,7 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (navToHome == null)
                 {
-                    navToHome = new RelayCommand<InGameViewModel>(command => this.NavAddress(HomePage));
+                    navToHome = NavigationHelper.NavBrowserCommands[(int)WebAddress.Home];
                 }
                 return navToHome;
             }
@@ -184,29 +174,21 @@ namespace AttackSecuritySimulator_ViewModels
             {
                 if (returnToMainMenu == null)
                 {
-                    returnToMainMenu = NavigationHelper.NavPageCommands[(int)Page.MainMenu];
+                    returnToMainMenu = new RelayCommand(NavWithCleanUp);
                 }
                 return returnToMainMenu;
             }
         }
 
-        private ICommand navToBank;
-        public ICommand NavToBank
+        private void NavWithCleanUp(object sender)
         {
-            get
-            {
-                if (navToBank == null)
-                {
-                    navToBank = new RelayCommand<InGameViewModel>(
-                        command => this.NavAddress(AddressLibrary.RetrieveWebAddress(WebAddress.FakeBank))
-                        );
-                }
-                return navToBank;
-            }
+            Mediator.Notify("HookCleanUp");
+            Mediator.Notify("NavMainMenu", "");
         }
-        #endregion
-    }
 
+        #endregion
+
+    }
 
     public enum TabView
     {
